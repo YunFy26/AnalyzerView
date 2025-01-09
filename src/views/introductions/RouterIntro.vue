@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import hljs from 'highlight.js/lib/core'
 import java from 'highlight.js/lib/languages/java'
 import 'highlight.js/styles/atom-one-dark.css'
-import PageHeader from '@/components/PageHeader.vue'
+import IntroPageHeader from '@/components/IntroPageHeader.vue'
 
 // 配置 Java 语言
 hljs.registerLanguage('java', java)
@@ -15,8 +15,8 @@ hljs.configure({
 })
 
 onMounted(() => {
-  document.querySelectorAll('pre code').forEach((el) => {
-    el.classList.add('java')  // 显式添加 java 类
+  document.querySelectorAll('pre code').forEach(el => {
+    el.classList.add('java') // 显式添加 java 类
     hljs.highlightElement(el as HTMLElement)
   })
 })
@@ -24,11 +24,11 @@ onMounted(() => {
 
 <template>
   <div class="router-intro">
-    <PageHeader 
+    <IntroPageHeader
       title="Router分析"
       subtitle="深入分析Spring MVC的路由映射关系"
     />
-    
+
     <div class="content-section">
       <div class="feature-cards">
         <div class="feature-card">
@@ -110,7 +110,9 @@ public class UserController {
               <div class="path">/api/users/{id}</div>
               <div class="details">
                 <div class="detail-item">方法：updateUser</div>
-                <div class="detail-item">参数：@PathVariable Long id, @RequestBody User user</div>
+                <div class="detail-item">
+                  参数：@PathVariable Long id, @RequestBody User user
+                </div>
                 <div class="detail-item">返回：User</div>
               </div>
             </div>
@@ -125,7 +127,7 @@ public class UserController {
 .router-intro {
   padding: 0;
   color: white;
-  background: #13132B;
+  background: #13132b;
   min-height: calc(100vh - 70px);
   width: 100%;
 }
@@ -135,8 +137,8 @@ public class UserController {
 .content-section {
   padding: 40px;
   position: relative;
-  margin: 40px auto;  /* 使用 auto 让内容居中 */
-  max-width: 1200px;  /* 限制内容最大宽度 */
+  margin: 40px auto; /* 使用 auto 让内容居中 */
+  max-width: 1200px; /* 限制内容最大宽度 */
 }
 
 .feature-cards {
@@ -148,7 +150,7 @@ public class UserController {
 }
 
 .feature-card {
-  background: #1A1A3A;
+  background: #1a1a3a;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   padding: 24px;
@@ -159,7 +161,7 @@ public class UserController {
 
 .feature-card:hover {
   transform: translateY(-5px);
-  background: #1F1F42;
+  background: #1f1f42;
   border-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -183,9 +185,9 @@ public class UserController {
 
 .demo-section {
   padding: 40px;
-  max-width: 1300px;  /* 限制内容最大宽度 */
-  margin: 0 auto;  /* 使用 auto 让内容居中 */
-  background: #13132B;
+  max-width: 1300px; /* 限制内容最大宽度 */
+  margin: 0 auto; /* 使用 auto 让内容居中 */
+  background: #13132b;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -199,7 +201,7 @@ public class UserController {
 
 .code-window,
 .analysis-section {
-  background: #1A1A3A;
+  background: #1a1a3a;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -212,7 +214,7 @@ public class UserController {
  * 外层代码窗口
  */
 .code-window {
-  background: #13132B;
+  background: #13132b;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -243,9 +245,15 @@ public class UserController {
   border-radius: 50%;
 }
 
-.dots span:nth-child(1) { background: #ff5f56; }
-.dots span:nth-child(2) { background: #ffbd2e; }
-.dots span:nth-child(3) { background: #27c93f; }
+.dots span:nth-child(1) {
+  background: #ff5f56;
+}
+.dots span:nth-child(2) {
+  background: #ffbd2e;
+}
+.dots span:nth-child(3) {
+  background: #27c93f;
+}
 
 .title {
   margin-left: 12px;
@@ -278,7 +286,7 @@ pre::before {
 }
 
 .analysis-section {
-  background: #13132B;
+  background: #13132b;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -307,9 +315,15 @@ pre::before {
   margin-right: 12px;
 }
 
-.get { background: #61affe; }
-.post { background: #49cc90; }
-.put { background: #fca130; }
+.get {
+  background: #61affe;
+}
+.post {
+  background: #49cc90;
+}
+.put {
+  background: #fca130;
+}
 
 .path {
   display: inline-block;
@@ -345,43 +359,49 @@ pre::before {
 /* IntelliJ IDEA 风格的代码高亮 */
 :deep(.hljs) {
   background: #09091c !important;
-  color: #A9B7C6;
+  color: #a9b7c6;
 }
 
 :deep(.hljs-keyword),
-:deep(.hljs-class) {  /* 关键字和类定义 */
-  color: #569CD6 !important;
+:deep(.hljs-class) {
+  /* 关键字和类定义 */
+  color: #569cd6 !important;
   font-weight: bold;
 }
 
-:deep(.hljs-string) {  /* 字符串 */
-  color: #6A8759 !important;
+:deep(.hljs-string) {
+  /* 字符串 */
+  color: #6a8759 !important;
 }
 
 :deep(.annotation),
 :deep(.hljs-meta),
-:deep(.hljs-decorator) {  /* 注解 */
-  color: #FFD700 !important;
+:deep(.hljs-decorator) {
+  /* 注解 */
+  color: #ffd700 !important;
 }
 
 :deep(.hljs-title.class_),
-:deep(.hljs-title.function_) {  /* 类名和方法名 */
+:deep(.hljs-title.function_) {
+  /* 类名和方法名 */
   color: #ffffff !important;
 }
 
 :deep(.hljs-params),
-:deep(.hljs-variable) {  /* 参数和变量 */
+:deep(.hljs-variable) {
+  /* 参数和变量 */
   color: #ffffff !important;
 }
 
-:deep(.hljs-type) {  /* 类型 */
+:deep(.hljs-type) {
+  /* 类型 */
   color: #f5fffd !important;
 }
 
 /* 确保注解中的字符串也是绿色 */
 :deep(.annotation .hljs-string),
 :deep(.hljs-meta .hljs-string) {
-  color: #6A8759 !important;
+  color: #6a8759 !important;
 }
 
 @media (max-width: 768px) {
@@ -414,4 +434,4 @@ pre::before {
     transform: translateY(0);
   }
 }
-</style> 
+</style>
