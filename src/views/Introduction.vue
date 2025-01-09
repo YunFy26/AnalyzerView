@@ -68,7 +68,7 @@
   justify-content: center;
   align-items: center;
   padding: 40px 0;
-  background: #13132B;
+  background: #13132b;
 }
 
 .content {
@@ -194,11 +194,11 @@
   .content {
     gap: 40px;
   }
-  
+
   .features {
     gap: 24px;
   }
-  
+
   .feature-item {
     padding: 28px;
     min-height: 200px;
@@ -217,16 +217,16 @@
   .content {
     max-width: 1000px;
   }
-  
+
   .left-section {
     max-width: 700px;
   }
-  
+
   .features {
     gap: 20px;
     grid-template-columns: repeat(2, minmax(200px, 350px));
   }
-  
+
   .feature-item {
     padding: 20px;
     min-height: 140px;
@@ -255,4 +255,4 @@
     margin-top: 20px;
   }
 }
-</style> 
+</style>
